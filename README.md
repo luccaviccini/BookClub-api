@@ -6,8 +6,9 @@ Welcome to my Book Club API Project repository! This project was born from the n
 Here's a screenshot of the database schema used in this project:
 
 <p align="center">
-  <img src="https://drive.google.com/file/d/10Bar_TwTE5JOSVaAO5VFPE9Ms6GsfW5Q/preview" />
+  <img src="https://github.com/luccaviccini/BookClub-api/blob/main/assets/bookclub-api.png" width="500" />
 </p>
+
 
 ## Tools Used
 
