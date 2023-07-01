@@ -5,10 +5,10 @@ Welcome to my Book Club API Project repository! This project was born from the n
 ## Tools Used
 
 - **Express.js**: This project uses Express as the web application framework for building the API.
-- **JavaScript**: JavaScript is the primary programming language used in this project.
+- **TypeScript**: JavaScript is the primary programming language used in this project.
 - **Authentication Libraries**: For securing the API, I've used various authentication libraries. These libraries help in creating secure routes and protecting user data.
 - **PostgreSQL**: PostgreSQL is used as the database for this project. It stores information about the users and the books.
-
+- **Prisma ORM**: Prisma is used as the Object-Relational Mapping (ORM) tool in this project. It provides an abstraction over PostgreSQL, making it easier to communicate with the database using TypeScript.
 ## Features
 
 - **User Registration and Authentication**: Users can register with a unique email and authenticate themselves. 
