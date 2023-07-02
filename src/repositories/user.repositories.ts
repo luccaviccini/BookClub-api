@@ -1,0 +1,17 @@
+import {prisma} from "../config"
+import { User, CreateUser } from "types/user.model";
+
+async function create({name, email, password} : CreateUser): Promise<User> {  
+  return prisma.users.create({data: {name, email, password}});
+}
+
+async function findbyEmail(email: string) {
+  return await prisma.users.findUnique({where: {email}});
+}
+
+
+
+export const userRespositories = {
+  create,
+  findbyEmail
+}
