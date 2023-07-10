@@ -1,5 +1,5 @@
 import {prisma} from "../config"
-import { User, CreateUser } from "types/user.model";
+import { User, CreateUser } from "types/user.types";
 
 async function create({name, email, password} : CreateUser): Promise<User> {  
   return prisma.users.create({data: {name, email, password}});

@@ -1,5 +1,5 @@
 import joi from 'joi';
-import { User } from '../types/user.model';
+import { User } from '../types/user.types';
 
 export const userSchema = joi.object<User>({
   name: joi.string().required(),
