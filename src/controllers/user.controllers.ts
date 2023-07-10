@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
 import { userService } from "../services";
+import { User } from "../types";
 
 async function create(req: Request, res: Response) {
   const { name, email, password } = req.body;
@@ -14,6 +15,20 @@ async function create(req: Request, res: Response) {
   }
 }
 
+async function login(req: Request, res: Response) {
+  const {email, password} = req.body;
+
+  try {
+    const token = await userService.login({email, password});
+    return res.status(httpStatus.OK).send({token});
+  }
+  catch(err) {
+    return res.status(500).send({message: err.message});
+  }
+
+}
+
 export const userController = {
   create,
+  login,
 }

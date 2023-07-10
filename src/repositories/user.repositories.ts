@@ -9,9 +9,13 @@ async function findbyEmail(email: string) {
   return await prisma.users.findUnique({where: {email}});
 }
 
+async function createSession(userId: number, token: string) {
+  return await prisma.sessions.create({data: {userId, token}});
+}
 
 
 export const userRespositories = {
   create,
-  findbyEmail
+  findbyEmail,
+  createSession,
 }
