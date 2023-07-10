@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import httpStatus from "http-status";
-import { authRepositories, userRepositories } from 'repositories';
+import { authRepositories, userRepositories } from '../repositories';
 
 
 
