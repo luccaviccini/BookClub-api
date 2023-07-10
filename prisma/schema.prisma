@@ -27,7 +27,7 @@ model MyBooks {
 
 model Sessions {
   id     Int    @id(map: "Sessions_pk") @default(autoincrement())
-  token  String
+  token  String 
   userId Int
   Users  Users  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Sessions_fk0")
 }
