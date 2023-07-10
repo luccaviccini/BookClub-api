@@ -12,7 +12,7 @@ async function create({name, author, userId} ) {
 }
 
 async function findBookByName(name: string) {
-  return await prisma.books.findMany({where: {name}});
+  return await prisma.books.findUnique({where: {name}});
 }
 
 export const bookRepositories = {
