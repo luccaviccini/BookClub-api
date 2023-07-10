@@ -4,7 +4,7 @@ import { authRepositories, userRepositories } from 'repositories';
 
 
 
-async function authValidation(req: Request, res: Response, next:NextFunction){
+export async function authValidation(req: Request, res: Response, next:NextFunction){
   const { authorization } = req.headers; // Bearer token
   const token = authorization?.replace('Bearer', '').trim();
 
@@ -30,6 +30,6 @@ async function authValidation(req: Request, res: Response, next:NextFunction){
   }
 
 }
-export default {authValidation};
+
 
 

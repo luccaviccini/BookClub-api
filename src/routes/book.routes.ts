@@ -1,9 +1,10 @@
 import { Router } from "express";
-import { validateSchema } from "../middlewares";
+import { validateSchema, authValidation } from "../middlewares";
 import { bookSchema } from "../schemas";
+import { bookController } from "../controllers";
 
 const bookRouter = Router();
 
-bookRouter.post("/", validateSchema(bookSchema), (req, res) => res.send("Book created!"));
+bookRouter.post("/", authValidation, validateSchema(bookSchema), bookController.create);
 
 export default bookRouter;

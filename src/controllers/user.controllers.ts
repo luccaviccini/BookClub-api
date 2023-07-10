@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
 import { userService } from "../services";
-import { User } from "../types";
 
 async function create(req: Request, res: Response) {
   const { name, email, password } = req.body;
