@@ -18,7 +18,7 @@ export async function authValidation(req: Request, res: Response, next:NextFunct
       return res.status(httpStatus.NOT_FOUND).json({ message: 'Session not found' });
     }
 
-    const user = await userRepositories.findbyId(session[0].userId);
+    const user = await userRepositories.findbyId(session.userId);
     if(!user) {
       return res.status(httpStatus.NOT_FOUND).json({ message: 'User not found' });
     }
