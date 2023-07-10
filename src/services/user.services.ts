@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import { User } from '../types';
-import { userRespositories } from '../repositories/';
+import { userRepositories } from '../repositories';
 import { v4 as uuidV4 } from 'uuid';
 
 
@@ -12,11 +12,11 @@ async function create({name, email, password} : User): Promise<User> {
   }
   const hashedPassword = bcrypt.hashSync(password, 10);
 
-  return await userRespositories.create({name, email, password: hashedPassword});
+  return await userRepositories.create({name, email, password: hashedPassword});
 }
 
 async function findbyEmail(email: string) {
-  const user =  await userRespositories.findbyEmail(email);
+  const user =  await userRepositories.findbyEmail(email);
   return user;
 }
 
@@ -31,7 +31,7 @@ async function login({email, password}: Pick<User, 'email' | 'password'> ){
   }
   
   const token = uuidV4();
-  await userRespositories.createSession(user.id, token);
+  await userRepositories.createSession(user.id, token);
   return token;
 }
 
