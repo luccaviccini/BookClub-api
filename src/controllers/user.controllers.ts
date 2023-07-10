@@ -19,6 +19,7 @@ async function login(req: Request, res: Response) {
 
   try {
     const token = await userService.login({email, password});
+    console.log("Token do Usuário login:", token)
     return res.status(httpStatus.OK).send({token});
   }
   catch(err) {

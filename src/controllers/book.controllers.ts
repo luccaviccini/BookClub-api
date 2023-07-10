@@ -12,6 +12,8 @@ async function create(req: Request, res: Response, next: NextFunction) {
     userId
   }
 
+  console.log("Objeto de criação do livro: ", createBookObject)
+
   try {
     await bookService.create(createBookObject);
     return res.status(201).json({ message: 'Book created' });

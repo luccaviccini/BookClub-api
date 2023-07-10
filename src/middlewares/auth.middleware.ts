@@ -6,11 +6,12 @@ import { authRepositories, userRepositories } from '../repositories';
 
 export async function authValidation(req: Request, res: Response, next:NextFunction){
   const { authorization } = req.headers; // Bearer token
-  const token = authorization?.replace('Bearer', '').trim();
+  const token = authorization?.replace('Bearer ', '');
 
   if(!token){
     return res.status(httpStatus.UNAUTHORIZED).json({ message: 'Token is required' });
   }
+  
 
   try {
     const session = await authRepositories.findSessionByToken(token);
@@ -22,9 +23,8 @@ export async function authValidation(req: Request, res: Response, next:NextFunct
     if(!user) {
       return res.status(httpStatus.NOT_FOUND).json({ message: 'User not found' });
     }
-
     res.locals.user = user;
-
+    next();
   } catch (err) {
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: err.message }); 
   }
