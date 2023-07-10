@@ -11,7 +11,7 @@ model Books {
   id       Int       @id(map: "Books_pk") @default(autoincrement())
   name     String    @unique
   author   String
-  availabe Boolean   @default(true)
+  available Boolean   @default(true)
   userId   Int
   Users    Users     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Books_fk0")
   MyBooks  MyBooks[]
