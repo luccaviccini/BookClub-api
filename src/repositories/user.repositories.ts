@@ -10,8 +10,15 @@ async function findbyEmail(email: string) {
 }
 
 async function createSession(userId: number, token: string) {
-  return await prisma.sessions.create({ data: { userId, token } });
+  const session = await prisma.sessions.upsert({
+    where: { userId },
+    create: { userId, token },
+    update: { token },
+  });
+
+  return session;
 }
+
 
 async function findbyId(userId: number) {
   return await prisma.users.findUnique({ where: { id: userId } });
